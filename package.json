@@ -1,0 +1,11 @@
+{
+  "name": "avanti-store",
+  "version": "1.0.0",
+  "description": "Avanti Store - Desafio Técnico",
+  "main": "index.html",
+  "scripts": {
+   "sass:watch": "sass --watch scss:css"
+  },
+  "author": "Samuel C. Ribeiro",
+  "license": "MIT"
+}
