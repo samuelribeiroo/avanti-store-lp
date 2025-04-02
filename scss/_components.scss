@@ -1,0 +1,24 @@
+@use 'base';
+@use 'colors' as *;
+@use 'typography' as *;
+
+.promo-banner-discount {
+  max-width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  background-color: $blue-default;
+  color: $zinc-white;
+
+  &__text {
+    font-size: map-get($font-size, "text-sm");
+    font-weight: map-get($font-weights, "bold");
+    letter-spacing: 0.82px;
+    line-height: 22px;
+  }
+
+  span {
+    background-color: $purple-violet;
+    padding: 0.8px;
+    border-radius: 2px;
+  }
+}
