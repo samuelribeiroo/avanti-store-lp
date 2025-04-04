@@ -23,6 +23,10 @@
     padding: 0.8px;
     border-radius: 2px;
   }
+
+  strong {
+    font-weight: map-get($font-weights, "regular");
+  }
 }
 
 .hero {
@@ -35,13 +39,12 @@
   }
 
   &__container {
-    max-width: 100%;
+    max-width: 98%;
     margin: 0 auto;
     @include flex-center-between;
     gap: 20px;
     position: relative;
     z-index: 2;
-
 
     @media (max-width: map-get($breakpoints, "lg")) {
       gap: 10px;
@@ -52,7 +55,7 @@
     position: relative;
     width: 50%;
     height: 400px;
-    margin-left: 17%;
+    margin-left: 12%;
 
     @include flex-center;
 
@@ -107,17 +110,17 @@
   &__subtitle {
     font-size: map-get($font-size, "text-2xl");
     font-weight: map-get($font-weights, "semi-bold");
-    letter-spacing: 0.8px !important;
+    letter-spacing: 8px !important;
     color: $blue-default;
     margin-bottom: 10px;
-    letter-spacing: 1px;
+
 
     @include responsive-text;
   }
 
   &__discount {
     font-size: map-get($font-size, "text-5xl");
-    font-weight: map-get($font-weights, "semi-bold");
+    font-weight: map-get($font-weights, "bold");
     color: $blue-default;
 
     @include responsive-text;
@@ -159,5 +162,86 @@
 
   &__dot--active {
     background-color: $blue-default;
+  }
+}
+
+.header {
+  background-color: $zinc-white;
+  padding: 15px 0;
+  border-bottom: 1px solid $medium-gray;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    @include flex-center-between;
+    padding: 0 40px;
+  }
+
+
+  &__actions {
+    @include flex-align;
+    gap: 20px;
+
+    a {
+      text-decoration: none;
+      color: $default;
+    }
+  }
+
+  &__account {
+    @include flex-align;
+    gap: 8px;
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      font-weight: map-get($font-weights, "semi-bold");
+    }
+  }
+
+  &__cart {
+    position: relative;
+
+    &-icon {
+      position: relative;
+    }
+
+    &-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      color: $zinc-white;
+      font-weight: map-get($font-weights, "semi-bold");
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      @include flex-center;
+    }
+  }
+}
+
+.search {
+  @include flex-align;
+  position: relative;
+
+  &__input {
+    width: 548px;
+    height: 40px;
+    max-width: 100%;
+    padding: 10px 15px;
+    border: 1px solid $medium-gray;
+    border-radius: 8px;
+
+    &::placeholder {
+      color: $dark-gray;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 }
