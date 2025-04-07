@@ -20,6 +20,10 @@
 
   <header class="header">
     <div class="header__container">
+      <button class="header__menu-toggle">
+        <span class="header__menu-icon"></span>
+      </button>
+
       <a href="/" class="header__logo">
         <img src="./assets/logo-avanti.svg" alt="Logo da loja">
       </a>
@@ -43,6 +47,7 @@
         <a href="/" class="header__cart">
           <div class="header__cart-icon">
             <img src="./assets/cart-icon.svg" alt="Ícone do carrinho de compras.">
+            <span class="header__cart-count">2</span>
           </div>
         </a>
       </div>
@@ -71,6 +76,42 @@
       <span class="hero__dot"></span>
     </div>
   </section>
+
+  <section class="product">
+    <div class="product__image-container">
+      <img src="./assets/primeiro banner.jpg" class="product__image" alt="Xícara Avanti - Produto Exemplo">
+    </div>
+
+    <div class="product__content">
+      <h2 class="product__title">LOREM IPSUM</h2>
+      <p class="product__description">
+        Duis consectetur metus nec lacus auctor dignissim. Mauris vitae finibus dui. Mauris laoreet lacus ut eleifend viverra. Cras efficitur volutpat dui, in lobortis metus lacinia sit amet. Sed lacinia pharetra magna, vel pulvinar ligula hendrerit a. Maecenas fringilla porttitor tortor eget lacinia. Donec sollicitudin euismod orci, auctor fringilla magna consequat interdum. Fusce sagittis elit a libero commodo egestas efficitur id augue.                  
+      </p>
+
+      <p class="product__description">
+        Duis consectetur metus nec lacus auctor dignissim. Mauris vitae finibus dui. Mauris laoreet lacus ut eleifend viverra. Cras efficitur volutpat dui, in lobortis metus lacinia sit amet. Sed lacinia pharetra magna, vel pulvinar ligula hendrerit a. Maecenas fringilla porttitor tortor eget lacinia. Donec sollicitudin euismod orci, auctor fringilla magna consequat interdum. Fusce sagittis elit a libero commodo egestas efficitur id augue.                  
+      </p>
+    </div>
+  </section>
+
+
+  <section class="newsletter">
+    <div class="newsletter__container">
+      <h1>Cadastre-se na nossa <strong>newsletter</strong></h1>
+      <div class="newsletter__content">
+        <input type="text" placeholder="Digite seu nome">
+        <input type="email" placeholder="Digite seu e-mail:" class="email">
+        <div class="newsletter__checkbox">
+          <input type="checkbox" id="privacy">
+          <label for="privacy">Estou de acordo com a <strong>Política de Privacidade</strong></label>
+        </div>
+        <button class="newsletter__button">Cadastrar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Colocar depois todo os componentes/layout dentro da tag main -->
+  <!-- <main></main> -->
 
 </body>
 
