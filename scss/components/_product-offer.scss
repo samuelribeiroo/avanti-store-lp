@@ -1,0 +1,54 @@
+@use '../base/base';
+@use '../base/colors' as *;
+@use '../base/typography' as *;
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+
+.product-offer {
+  width: 100%;
+  background-color: $medium-gray;
+  padding: 40px 0;
+
+  &__container {
+    max-width: map-get($breakpoints, "lg");
+    margin: 0 auto;
+    @include flex-center-between;
+    gap: 40px;
+    padding: 0 20px;
+
+    @media (max-width: map-get($breakpoints, "md")) {
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    h1 {
+      text-align: center;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: map-get($font-weights, "bold");
+    color: $gray-font-color;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  &__image {
+    flex: 1;
+    @include flex-center;
+
+    .showcase__img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+  }
+}

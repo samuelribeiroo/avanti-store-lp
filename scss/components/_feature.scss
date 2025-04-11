@@ -1,0 +1,24 @@
+@use '../base/base';
+@use '../colors' as *;
+@use '../typography' as *;
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+
+  &__text {
+    p {
+      margin: 0;
+      font-size: map-get($font-size, "text-sm");
+      line-height: 1.5;
+      color: $gray-font-color;
+      font-weight: map-get($font-weights, "regular");
+      margin-left: 60px;
+    }
+  }
+}

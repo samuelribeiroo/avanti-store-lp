@@ -1,0 +1,55 @@
+@use '../base/base';
+@use '../base/colors' as *;
+@use '../base/typography' as *;
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+
+.search {
+  @include flex-align;
+  position: relative;
+
+  &__input {
+    width: 548px;
+    height: 40px;
+    max-width: 100%;
+    padding: 10px 15px;
+    border: 1px solid $medium-gray;
+    border-radius: 8px;
+
+    &::placeholder {
+      color: $dark-gray;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .search-result {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background: $zinc-white;
+    padding: 8px 12px;
+    border: 1px solid $medium-gray;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px $default-box-shadow;
+    font-size: map-get($font-weights, "text-sm");
+    color: $default;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .search-result.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

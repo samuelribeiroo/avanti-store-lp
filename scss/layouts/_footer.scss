@@ -1,0 +1,250 @@
+@use '../base/base';
+@use '../base/colors' as *;
+@use '../base/typography' as *;
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+
+.footer {
+  width: 100%;
+  padding: 40px 0 20px;
+  margin-top: 1.5rem;
+
+  @media (max-width: map-get($breakpoints, "md")) {
+    border-top: 1px solid $light-gray;
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__main-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+
+    @media (max-width: map-get($breakpoints, "breakpoint-lg")) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  &__logo-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    @media (max-width: map-get($breakpoints, "breakpoint-lg")) {
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    &-img {
+      max-width: 150px;
+      height: auto;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 15px;
+
+    &-link {
+      @include flex-center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      color: $default;
+
+      &:hover {
+        color: $default;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__info-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @media (max-width: map-get($breakpoints, "breakpoint-lg")) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: map-get($breakpoints, "md")) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: map-get($breakpoints, "sm")) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__column {
+    &-title {
+      font-size: map-get($font-size, "text-sm");
+      font-weight: bold;
+      color: $default;
+      margin-bottom: 15px;
+      position: relative;
+      margin-left: 36.5px;
+      display: flex;
+      align-items: center;
+
+      @media (max-width: map-get($breakpoints, "sm")) {
+        margin-left: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid $light-gray;
+      }
+    }
+
+    &--collapsible {
+      @media (max-width: map-get($breakpoints, "sm")) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    color: $default;
+
+    @media (max-width: map-get($breakpoints, "breakpoint-sm")) {
+      display: block;
+    }
+
+    &-icon {
+      transition: transform 0.3s ease;
+      padding: 8px;
+    }
+
+    &[aria-expanded="true"] .footer__toggle-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__list {
+    list-style: none;
+
+    &-item {
+      margin-bottom: 8px;
+      font-size: map-get($font-size, "text-sm");
+
+      h5 {
+        font-weight: map-get($font-weights, "regular");
+      }
+    }
+
+    strong {
+      color: $gray-strong;
+    }
+
+    span {
+      time {
+        font-weight: map-get($font-weights, "regular");
+        font-style: normal !important;
+        color: $gray-link;
+      }
+    }
+
+    .atendence {
+      margin-bottom: 3px;
+    }
+
+    &--collapsible {
+      @media (max-width: map-get($breakpoints, "sm")) {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+    }
+
+    &--expanded {
+      @media (max-width: map-get($breakpoints, "sm")) {
+        max-height: 500px;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  &__link {
+    color: $gray-link;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $default;
+    }
+  }
+
+  &__payment {
+    padding-top: 20px;
+
+
+    &-methods {
+      @include flex-center;
+      flex-wrap: wrap;
+      gap: 36px;
+      padding: 20px;
+      justify-content: center;
+
+
+      @media (max-width: map-get($breakpoints, "sm")) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    &-icon {
+      height: 20px;
+      width: auto;
+    }
+  }
+
+  &__final {
+    margin-top: 2rem;
+    @include flex-center;
+    flex-direction: column;
+    gap: 1rem;
+
+    &-text {
+      font-size: 0.75rem; // 12px
+      text-align: center;
+    }
+
+    &-icons {
+      @include flex-align;
+      gap: 1.5rem;
+    }
+  }
+
+  &__partners {
+    @include flex-center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+
+    @media (max-width: map-get($breakpoints, "sm")) {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+
+  &__partner-logo {
+    height: 30px;
+    width: auto;
+
+    @media (max-width: map-get($breakpoints, "sm")) {
+      height: 23px;
+    }
+  }
+}

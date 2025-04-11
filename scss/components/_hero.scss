@@ -1,0 +1,142 @@
+@use '../base/base';
+@use '../base/colors' as *;
+@use '../base/typography' as *;
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+
+.hero {
+  font-family: $font-secondary;
+  background-color: $smooth-gray;
+  position: relative;
+
+  @media (max-width: map-get($breakpoints, "lg")) {
+    height: 450px;
+  }
+
+  &__container {
+    max-width: 98%;
+    margin: 0 auto;
+    @include flex-center-between;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: map-get($breakpoints, "lg")) {
+      gap: 10px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    width: 50%;
+    height: 400px;
+    margin-left: 12%;
+
+    @include flex-center;
+
+    @media (max-width: map-get($breakpoints, "lg")) {
+      width: 100%;
+      margin-top: 30px;
+      margin-left: -50%;
+    }
+
+    .hero__background {
+      width: 100%;
+      height: 100%;
+      background-color: $smooth-gray;
+      z-index: 1;
+      border-radius: 8px;
+      @include flex-center-between;
+      overflow: hidden;
+
+    }
+
+    .hero__banner {
+      position: relative;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+  }
+
+  &__content {
+    width: 50%;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    margin-left: -50% !important;
+
+  }
+
+  &__title {
+    font-size: map-get($font-size, "text-6xl");
+    font-weight: map-get($font-weights, "bold");
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+
+    @include responsive-text;
+
+    &--light {
+      font-weight: map-get($font-weights, "extra-thin");
+    }
+  }
+
+  &__subtitle {
+    font-size: map-get($font-size, "text-2xl");
+    font-weight: map-get($font-weights, "semi-bold");
+    letter-spacing: 8px !important;
+    color: $blue-default;
+    margin-bottom: 10px;
+
+
+    @include responsive-text;
+  }
+
+  &__discount {
+    font-size: map-get($font-size, "text-5xl");
+    font-weight: map-get($font-weights, "bold");
+    color: $blue-default;
+
+    @include responsive-text;
+
+    &--off {
+      margin-left: 5px;
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    display: none;
+    left: 40%;
+    margin-top: 20px;
+    margin-bottom: 9px;
+    padding: 8px;
+    cursor: pointer;
+
+    @media (max-width: map-get($breakpoints, "lg")) {
+
+      @include flex-center;
+      margin-top: -20px;
+      gap: 10px;
+      z-index: 5 !important;
+    }
+  }
+
+  &__dot {
+    width: 12px;
+    height: 12px;
+    background-color: $dark-gray;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $blue-default;
+    }
+  }
+
+  &__dot--active {
+    background-color: $blue-default;
+  }
+}
