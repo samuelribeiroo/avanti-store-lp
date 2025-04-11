@@ -393,8 +393,10 @@
   margin-bottom: 40px;
 
   &__description {
-    width: 487px;
-    height: 225px;
+    width: 100%;
+    max-width: 487px;
+    height: auto;
+    min-height: 225px;
   }
 
   @media (min-width: map-get($breakpoints, "md")) {
@@ -404,7 +406,27 @@
 
   &__image-container {
     @include flex-center;
-    padding: 20px;
+    background-color: #d3d3d3;
+    padding: 5%;
+    width: 100%;
+    max-width: 652px;
+    height: auto;
+    aspect-ratio: 652 / 747;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: map-get($breakpoints, "md")) {
+      margin-left: 10%;
+      margin-right: 0;
+    }
+
+    @media (max-width: map-get($breakpoints, "sm")) {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 15px;
+      margin-top: 1rem;
+    }
   }
 
   &__image {
@@ -597,5 +619,337 @@
     font-weight: bold;
     transition: background-color 0.3s;
     white-space: nowrap;
+  }
+}
+
+.banner {
+  width: 100%;
+  max-width: 1920px;
+  height: 660px;
+  overflow: hidden;
+  position: relative;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__cta {
+    position: absolute;
+    width: 100%;
+    padding: 15px 0;
+    background-color: $blue-default;
+    color: $zinc-white;
+    text-align: center;
+    font-size: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+  }
+
+
+  @media (max-width: map-get($breakpoints, "md")) {
+    .banner {
+      height: 200px;
+    }
+
+    .banner__logo {
+      top: 30px;
+      right: 30px;
+      font-size: 2rem;
+    }
+
+    .banner__shape--1 {
+      width: 150px;
+      left: 5%;
+    }
+
+    .banner__shape--2 {
+      width: 100px;
+      left: 30%;
+    }
+
+    .banner__shape--3 {
+      width: 120px;
+      left: 50%;
+    }
+
+    .banner__cta {
+      padding: 12px 10px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, "sm")) {
+    .banner {
+      height: 150px;
+    }
+
+    .banner__logo {
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+    }
+
+    .banner__cta {
+      padding: 10px;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 40px 0 20px;
+  margin-top: 1.5rem;
+
+  @media (max-width: map-get($breakpoints, "md")) {
+    border-top: 1px solid $light-gray;
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__main-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+
+    @media (max-width: map-get($breakpoints, "breakpoint-lg")) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  &__logo-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    @media (max-width: map-get($breakpoints, "breakpoint-lg")) {
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    &-img {
+      max-width: 150px;
+      height: auto;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 15px;
+
+    &-link {
+      @include flex-center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      color: $default;
+
+      &:hover {
+        color: $default;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__info-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @media (max-width: map-get($breakpoints, "breakpoint-lg")) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: map-get($breakpoints, "md")) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: map-get($breakpoints, "sm")) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__column {
+    &-title {
+      font-size: map-get($font-size, "text-sm");
+      font-weight: bold;
+      color: $default;
+      margin-bottom: 15px;
+      position: relative;
+      margin-left: 36.5px;
+      display: flex;
+      align-items: center;
+
+      @media (max-width: map-get($breakpoints, "sm")) {
+        margin-left: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid $light-gray;
+      }
+    }
+
+    &--collapsible {
+      @media (max-width: map-get($breakpoints, "sm")) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    color: $default;
+
+    @media (max-width: map-get($breakpoints, "breakpoint-sm")) {
+      display: block;
+    }
+
+    &-icon {
+      transition: transform 0.3s ease;
+      padding: 8px;
+    }
+
+    &[aria-expanded="true"] .footer__toggle-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__list {
+    list-style: none;
+
+    &-item {
+      margin-bottom: 8px;
+      font-size: map-get($font-size, "text-sm");
+
+      h5 {
+        font-weight: map-get($font-weights, "regular");
+      }
+    }
+
+    strong {
+      color: $gray-strong;
+    }
+
+    span {
+      time {
+        font-weight: map-get($font-weights, "regular");
+        font-style: normal !important;
+        color: $gray-link;
+      }
+    }
+
+    .atendence {
+      margin-bottom: 3px;
+    }
+
+    &--collapsible {
+      @media (max-width: map-get($breakpoints, "sm")) {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+    }
+
+    &--expanded {
+      @media (max-width: map-get($breakpoints, "sm")) {
+        max-height: 500px;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  &__link {
+    color: $gray-link;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $default;
+    }
+  }
+
+  &__payment {
+    padding-top: 20px;
+
+
+    &-methods {
+      @include flex-center;
+      flex-wrap: wrap;
+      gap: 36px;
+      padding: 20px;
+      justify-content: center;
+
+
+      @media (max-width: map-get($breakpoints, "sm")) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    &-icon {
+      height: 20px;
+      width: auto;
+    }
+  }
+
+  &__final {
+    margin-top: 2rem;
+    @include flex-center;
+    flex-direction: column;
+    gap: 1rem;
+
+    &-text {
+      font-size: 0.75rem; // 12px
+      text-align: center;
+    }
+
+    &-icons {
+      @include flex-align;
+      gap: 1.5rem;
+    }
+  }
+
+  &__partners {
+    @include flex-center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+
+    @media (max-width: map-get($breakpoints, "sm")) {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+
+  &__partner-logo {
+    height: 30px;
+    width: auto;
+
+    @media (max-width: map-get($breakpoints, "sm")) {
+      height: 23px;
+    }
   }
 }
