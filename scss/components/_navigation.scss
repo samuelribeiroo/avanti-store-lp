@@ -1,0 +1,112 @@
+@use '../base/base';
+@use '../base/colors' as *;
+@use '../base/typography' as *;
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+.categories-nav {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1010; 
+
+  &__container {
+    max-width: map-get($breakpoints, "breakpoint-xl");
+    margin: 0 auto;
+    @include flex-center-between;
+    padding: 0 40px;
+    height: 80px;
+  }
+
+  &__toggle {
+    font-family: $font-primary;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative; /
+
+    p {
+      font-size: map-get($font-size, "text-sm");
+      font-weight: map-get($font-weights, "bold");
+    }
+
+    &.active {
+      color: $blue-default;
+
+      p {
+        color: $blue-default;
+      }
+
+      .categories-nav__icon {
+        background-color: $blue-default;
+
+        &:before,
+        &:after {
+          background-color: $blue-default;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 16px;
+    height: 2px;
+    background-color: $default;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 2px;
+      background-color: $default;
+      left: 0;
+    }
+
+    &:before {
+      top: 6px;
+    }
+
+    &:after {
+      top: -7px;
+    }
+  }
+
+  &__departments {
+    flex-grow: 1;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+
+  &__list {
+    @include flex-center-between;
+    list-style: none;
+    height: 100%;
+  }
+
+  &__item {
+    height: 100%;
+  }
+
+  &__link {
+    color: $default;
+    font-size: map-get($font-size, "text-sm");
+    font-weight: map-get($font-weights, "regular");
+    text-decoration: none;
+  }
+
+  @media (max-width: map-get($breakpoints, "medium")) {
+    padding: 0 10px;
+
+    &__container {
+      padding: 0 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+  }
+}
+
