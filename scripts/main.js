@@ -1,8 +1,14 @@
+import { initCarousel } from "../scripts/carousel.js";
+import { paymentMethods } from "../data/index.js";
+
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-  showSearchedResults();
   initPaymentIcons();
+  initCategoryNavActions();
+  initDepartamentsCategories();
+  initCarousel();
+  showSearchedResults();
   handleToggleList();
 }
 
@@ -44,62 +50,6 @@ function showSearchedResults() {
 function initPaymentIcons() {
   const paymentContainer = document.querySelector(".footer__payment-methods");
 
-  const paymentMethods = [
-    {
-      id: 0,
-      title: "Amex",
-      src: "./assets/icons/amex.svg",
-    },
-
-    {
-      id: 1,
-      title: "Mastercard",
-      src: "./assets/icons/mastercard.svg",
-    },
-
-    {
-      id: 2,
-      title: "Visa",
-      src: "./assets/icons/visa.svg",
-    },
-
-    {
-      id: 3,
-      title: "Hipercard",
-      src: "./assets/icons/hipercard.svg",
-    },
-
-    {
-      id: 4,
-      title: "Cielo",
-      src: "./assets/icons/cielo.svg",
-    },
-
-    {
-      id: 5,
-      title: "Payment",
-      src: "./assets/icons/payment.svg",
-    },
-
-    {
-      id: 6,
-      title: "PayPal",
-      src: "./assets/icons/paypal-seeklogo.com.svg",
-    },
-
-    {
-      id: 7,
-      title: "Pix",
-      src: "./assets/icons/pix.svg",
-    },
-
-    {
-      id: 8,
-      title: "Boleto",
-      src: "./assets/icons/boleto.svg",
-    },
-  ];
-
   paymentMethods.map((icon) => {
     const img = createPaymentIcons(icon);
     paymentContainer.appendChild(img);
@@ -118,15 +68,17 @@ function createPaymentIcons(icon) {
 
 const buttonListenerMobile = (buttonElement) => {
   buttonElement.addEventListener("click", function () {
-      const isExpanded = this.getAttribute("aria-expanded") === "true";
-  
-      this.setAttribute("aria-expanded", !isExpanded);
-  
-      const columnTitle = this.closest(".footer__column-title");
-      const column = columnTitle.parentElement;
-      const list = column.querySelector(".footer__list--collapsible");
-  
-      isExpanded ? list.classList.remove("footer__list--expanded") : list.classList.add("footer__list--expanded");
+    const isExpanded = this.getAttribute("aria-expanded") === "true";
+
+    this.setAttribute("aria-expanded", !isExpanded);
+
+    const columnTitle = this.closest(".footer__column-title");
+    const column = columnTitle.parentElement;
+    const list = column.querySelector(".footer__list--collapsible");
+
+    isExpanded
+      ? list.classList.remove("footer__list--expanded")
+      : list.classList.add("footer__list--expanded");
   });
 };
 
@@ -135,4 +87,112 @@ function handleToggleList() {
   const toggleButtons = document.querySelectorAll(".footer__toggle");
 
   return toggleButtons.forEach((button) => buttonListenerMobile(button));
+}
+
+function initCategoryNavActions() {
+  const menuToggle = document.getElementById("menuToggle");
+  const categoriesDropdown = document.getElementById("categoriesDropdown");
+  const closeDropdown = document.getElementById("closeDropdown");
+  const departments = document.querySelectorAll(
+    ".categories-dropdown__department"
+  );
+
+  const handleOpenDropdown = () => {
+    categoriesDropdown.classList.add("active");
+    menuToggle.classList.add("active");
+    document.documentElement.classList.add("dropdown-active");
+
+    if (departments.length > 0) {
+      departments.forEach((element) => element.classList.remove("active"));
+      departments[0].classList.add("active");
+    }
+  };
+
+  const handleCloseDropdown = () => {
+    categoriesDropdown.classList.remove("active");
+    menuToggle.classList.remove("active");
+    document.documentElement.classList.remove("dropdown-active");
+  };
+
+  menuToggle.addEventListener("click", function (event) {
+    event.stopPropagation();
+
+    categoriesDropdown.classList.contains("active")
+      ? handleCloseDropdown()
+      : handleOpenDropdown();
+  });
+
+  document.addEventListener("click", function (event) {
+    if (
+      !categoriesDropdown.contains(event.target.value) &&
+      !menuToggle.contains(event.target) &&
+      categoriesDropdown.classList.contains("active")
+    )
+      handleCloseDropdown();
+  });
+
+  closeDropdown.addEventListener("click", handleCloseDropdown);
+
+  document.addEventListener("keydown", function (event) {
+    if (
+      event.key === "Escape" &&
+      categoriesDropdown.classList.contains("active")
+    ) {
+      handleCloseDropdown();
+    }
+  });
+
+  departments.forEach((department) => {
+    department.addEventListener("click", function (event) {
+      event.preventDefault();
+      departments.forEach((element) => element.classList.remove("active"));
+      this.classList.add("active");
+    });
+  });
+}
+
+function initDepartamentsCategories() {
+  const navLinks = document.querySelectorAll(".categories-nav__link");
+  const mainContainer = document.querySelector(".container-products");
+  const body = document.body;
+
+  const closeContainer = () => {
+    mainContainer.classList.remove("active");
+    body.classList.remove("overlay-active");
+  };
+
+  navLinks.forEach((nav) => {
+    nav.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      navLinks.forEach((item) => item.classList.remove("active"));
+
+      nav.classList.add("active");
+
+      const isAlreadyActive = mainContainer.classList.contains("active");
+
+      closeContainer();
+
+      if (!isAlreadyActive) {
+        body.classList.add("overlay-active");
+        mainContainer.classList.add("active");
+      }
+    });
+  });
+
+  document.addEventListener("click", function (event) {
+    if (
+      !mainContainer.contains(event.target) &&
+      !event.target.closest(".categories-nav__link") &&
+      mainContainer.classList.contains("active")
+    ) {
+      closeContainer();
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && mainContainer.classList.contains("active")) {
+      closeContainer();
+    }
+  });
 }

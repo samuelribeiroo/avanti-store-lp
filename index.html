@@ -8,7 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
-  <script src="./scripts/main.js"></script>
+  <script type="module" src="./data/index.js"></script>
+  <script type="module" src="./scripts/main.js"></script>
   <title>Avanti Store - Landing Page</title>
 </head>
 
@@ -55,7 +56,7 @@
     </div>
   </header>
 
- <nav class="categories-nav">
+  <nav class="categories-nav">
     <div class="categories-nav__container">
       <div class="categories-nav__all">
         <button class="categories-nav__toggle" id="menuToggle">
@@ -73,13 +74,12 @@
           <li class="categories-nav__item"><a href="#" class="categories-nav__link">Departamento</a></li>
           <li class="categories-nav__item"><a href="#" class="categories-nav__link">Departamento</a></li>
           <li class="categories-nav__item"><a href="#" class="categories-nav__link">Departamento</a></li>
-          <li class="categories-nav__item"><a href="#" class="categories-nav__link">Departamento</a></li> 
+          <li class="categories-nav__item"><a href="#" class="categories-nav__link">Departamento</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
- 
   <div class="categories-dropdown" id="categoriesDropdown">
     <button class="categories-dropdown__close" id="closeDropdown">×</button>
     <div class="categories-dropdown__container">
@@ -133,7 +133,6 @@
             <a href="#" class="categories-dropdown__department-link">Departamento </a>
             <img src="./assets/icons/arrow-left.svg" alt="" srcset="">
           </li>
-          
         </ul>
       </div>
 
@@ -174,17 +173,58 @@
 
           <div class="categories-dropdown__banner">
             <div class="banner-content">
-              <h3>Confira os produtos que acabaram de chegar</h3>
+              <h3>Confira os produtos</h3>
+              <strong>Que acabaram De chegar</strong>
               <a href="#" class="banner-button">VER TODOS</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div> 
+  </div>
 
+  <div class="container-products">
+    <div class="category-section">
+      <h2 class="section-title">Departamento</h2>
+      <div class="categories-container">
+        <div class="category-column">
+          <a href="#" class="category-link category-title">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+        </div>
+        <div class="category-column">
+          <a href="#" class="category-link category-title">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+        </div>
+        <div class="category-column">
+          <a href="#" class="category-link category-title">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          <a href="#" class="category-link">Categoria</a>
+          
+          
+        </div>
+        <div class="categories-dropdown__banner" id="bannerNav">
+          <div class="banner-content">
+            <h3>Confira os produtos</h3>
+            <strong>Que acabaram De chegar</strong>
+            <a href="#" class="banner-button">VER TODOS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
- <section class="hero">
+  <section class="hero">
     <div class="hero__container">
       <div class="hero__image">
         <div class="hero__background">
@@ -205,6 +245,34 @@
       <span class="hero__dot"></span>
     </div>
   </section>
+
+  <section class="container-carousel">
+    <span class="carousel-header">
+      <h2>Lançamentos</h2>
+      <a href="#" class="view-all">Ver mais</a>
+    </span>
+    <div class="carousel-container">
+      <button class="carousel-button prev" id="prev1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 8 8 12 12 16"></polyline>
+          <line x1="16" y1="12" x2="8" y2="12"></line>
+        </svg>
+      </button>
+      <div class="carousel-track-container">
+        <div class="carousel-track" id="carousel-track1"></div>
+      </div>
+      <button class="carousel-button next" id="next1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 16 16 12 12 8"></polyline>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="carousel-nav" id="carousel-nav1"></div>
+  </section>
+
 
   <section class="product">
     <div class="product__image-container">
@@ -280,6 +348,35 @@
     </div>
   </section>
 
+
+  <section class="container-carousel">
+    <span class="carousel-header">
+      <h2>Lançamentos</h2>
+      <a href="#" class="view-all">Ver mais</a>
+    </span>
+    <div class="carousel-container">
+      <button class="carousel-button prev" id="prev2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 8 8 12 12 16"></polyline>
+          <line x1="16" y1="12" x2="8" y2="12"></line>
+        </svg>
+      </button>
+      <div class="carousel-track-container">
+        <div class="carousel-track" id="carousel-track2"></div>
+      </div>
+      <button class="carousel-button next" id="next2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 16 16 12 12 8"></polyline>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="carousel-nav" id="carousel-nav2"></div>
+  </section>
+
+
   <div class="banner">
     <div class="banner__background">
       <img src="./assets/banner-avanti.jpg" alt="Imagem Avanti empresa">
@@ -304,7 +401,6 @@
     </div>
   </section>
 
-
   <footer class="footer" role="contentinfo">
     <div class="footer__container">
       <div class="footer__main-grid">
@@ -315,7 +411,7 @@
 
           <nav class="footer__social" aria-label="Redes sociais">
             <a href="#" class="footer__social-link" aria-label="Instagram">
-              <img src="./assets/icons/facebook.svg" alt="Ícone do Instagram">
+              <img src="./assets/icons/instagram.svg" alt="Ícone do Instagram">
             </a>
 
             <a href="#" class="footer__social-link" aria-label="Facebook">
@@ -323,11 +419,11 @@
             </a>
 
             <a href="#" class="footer__social-link" aria-label="YouTube">
-              <img src="./assets/icons/facebook.svg" alt="Ícone do YouTube">
+              <img src="./assets/icons/youtube.svg" alt="Ícone do YouTube">
             </a>
 
             <a href="#" class="footer__social-link" aria-label="TikTok">
-              <img src="./assets/icons/facebook.svg" alt="Ícone do TikTok">
+              <img src="./assets/icons/tiktok.svg" alt="Ícone do TikTok">
             </a>
           </nav>
         </section>
@@ -427,17 +523,19 @@
         </p>
 
         <div class="footer__partners">
-          <img src="./assets/icons/VTEX_Logo (1) 1.svg" alt="Parceiro 1" class="footer__partner-logo">
-          <img src="./assets/icons/VTEX_Logo (1) 1.svg" alt="Parceiro 2" class="footer__partner-logo">
-          <img src="./assets/icons/VTEX_Logo (1) 1.svg" alt="Avanti" class="footer__partner-logo">
+          <img src="./assets/icons/encrypt.png" alt="Parceiro 1" class="footer__partner-logo">
+          <img src="./assets/icons/vtex-pci.svg" alt="Parceiro 2" class="footer__partner-logo">
+          <img src="./assets/icons/avanti.svg" alt="Avanti" class="footer__partner-logo" style="width: 50px;">
           <img src="./assets/icons/VTEX_Logo (1) 1.svg" alt="Parceiro 3" class="footer__partner-logo">
         </div>
       </div>
     </div>
-  </footer> 
+  </footer>
 
   <!-- Colocar depois todo os componentes/layout dentro da tag main -->
   <!-- <main></main> -->
+
+
 
 </body>
 
