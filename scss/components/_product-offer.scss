@@ -41,6 +41,13 @@
     text-transform: uppercase;
   }
 
+  .feature {
+    @include flex-align;
+    gap: 90px;
+
+  }
+
+
   &__image {
     flex: 1;
     @include flex-center;

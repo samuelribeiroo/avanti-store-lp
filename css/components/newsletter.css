@@ -1,0 +1,125 @@
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    min-width: 0;
+    min-height: 0;
+  }
+  :root {
+    box-sizing: border-box;
+  }
+  html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    image-rendering: optimizeQuality;
+    overflow-y: scroll;
+    text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "Nunito Sans", sans-serif;
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures;
+  }
+}
+.newsletter {
+  width: 100%;
+  max-width: 1536px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: 700;
+}
+.newsletter strong {
+  color: #005CFF;
+}
+.newsletter .newsletter__container {
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1366px;
+}
+.newsletter__content {
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: #DEDEDE;
+  padding: 60px;
+  border-radius: 8px;
+}
+.newsletter__content input {
+  width: 280px;
+  max-width: 100%;
+  height: 48px;
+  max-height: 100% !important;
+  border: none;
+  text-align: left;
+  padding-left: 12px;
+  border-radius: 8px;
+}
+.newsletter__content .email {
+  margin-left: -90px;
+}
+@media (max-width: 991px) {
+  .newsletter__content {
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #FFFFFF;
+  }
+  .newsletter__content .email {
+    margin-left: 0;
+  }
+}
+.newsletter__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+.newsletter__checkbox input {
+  width: 16px;
+  height: 16px;
+}
+.newsletter__checkbox label,
+.newsletter__checkbox strong {
+  color: #656565;
+  font-weight: 700;
+}
+.newsletter__checkbox strong {
+  text-decoration: underline;
+}
+.newsletter__button {
+  background-color: #005CFF;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 18px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+/*# sourceMappingURL=newsletter.css.map */

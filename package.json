@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Avanti Store - Desafio Técnico",
   "main": "index.html",
+  "type": "module",
   "scripts": {
    "sass:watch": "sass --watch scss:css"
   },
